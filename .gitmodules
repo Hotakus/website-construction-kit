@@ -9,3 +9,6 @@
 	path = submodules/PHP-8.2.6
 	url = https://github.com/php/php-src.git
 	branch = PHP-8.2.6
+[submodule "submodules/mariadb-11.1"]
+	path = submodules/mariadb-11.1
+	url = https://github.com/MariaDB/server.git
