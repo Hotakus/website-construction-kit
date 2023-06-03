@@ -1,5 +1,13 @@
 {
-	"use_database" : "yes",
+	// database, mariadb, if "use_database" is "yes", the project will install a mariadb in your server or docker.
+	// The "default" is invalid, you must change it to a valid value
+	"use_database" : "yes", 
+	"db_user" : "default",
+	"db_pwd" : "default",
+	"db_host" : "127.0.0.1",
+	"debug" : "no",
+		
+	// nginx
 	"use_nginx" : "yes",
 	"nginx_options" : {
 		"pseudo-static" : "yes",
@@ -7,6 +15,7 @@
 		"site-location" : "/"
 	},
 
+	// PHP
 	"php_configs" : ["--with-freetype", "--with-jpeg", "--with-mysqli", "--with-mysql-sock",
 					 "--with-zlib", "--enable-fpm", "--with-zip","--with-webp", "--enable-ftp", 
 					 "--enable-libgcc", "--enable-mysqlnd", "--enable-sockets", "--enable-soap",
