@@ -1,0 +1,5 @@
+{
+	"use_database" : "yes",
+	"use_nginx" : "yes",
+	"php_configs" : ["--enable-"],
+}
