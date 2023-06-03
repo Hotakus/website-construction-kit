@@ -18,3 +18,8 @@
 [submodule "submodules/ImageMagick"]
 	path = submodules/ImageMagick
 	url = https://github.com/ImageMagick/ImageMagick.git
+
+[submodule "submodules/nginx-1.24.0"]
+	path = submodules/nginx-1.24.0
+	url = https://github.com/Hotakus/nginx.git
+	branch = branches/stable-1.24
