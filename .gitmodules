@@ -10,3 +10,11 @@
 	url = https://github.com/php/php-src.git
 	branch = PHP-8.2.6
 
+[submodule "submodules/imagick-3.7.0"]
+	path = submodules/imagick-3.7.0
+	url = https://github.com/Imagick/imagick.git
+	branch = 3.7.0
+[submodule "submodules/wordpress-6.2"]
+	path = submodules/wordpress-6.2
+	url = https://github.com/WordPress/WordPress.git
+	branch = 6.2-branch
