@@ -1,5 +1,16 @@
 {
 	"use_database" : "yes",
 	"use_nginx" : "yes",
-	"php_configs" : ["--enable-"],
+	"nginx_options" : {
+		"pseudo-static" : "yes",
+		"port" : "80",
+		"site-location" : "/"
+	},
+
+	"php_configs" : ["--with-freetype", "--with-jpeg", "--with-mysqli", "--with-mysql-sock",
+					 "--with-zlib", "--enable-fpm", "--with-zip","--with-webp", "--enable-ftp", 
+					 "--enable-libgcc", "--enable-mysqlnd", "--enable-sockets", "--enable-soap",
+					 "--enable-libgcc", "--with-openssl", "--with-curl", "--enable-gd", "--enable-intl",
+					 "--enable-mbstring", "--enable-exif"],
+	"":""
 }
