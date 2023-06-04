@@ -45,6 +45,17 @@ sudo apt install build-essential cmake
 
 ads
 
+
+
+```c
+#include <stdio.h>
+int main() {
+    return 0;
+}
+```
+
+
+
 ---
 
 ## Deploying
