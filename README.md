@@ -10,7 +10,7 @@ This kit can automatically compile, deploy and configure wordpress with a nice m
 
 Install basic packages:
 
-```shell
+```console
 sudo apt install bison re2c pkg-config libxml2-dev libssl-dev \ 
  libsqlite3-dev  libcurl4-openssl-dev libpng-dev libwebp-dev libjpeg-dev \
  libfreetype-dev libonig-dev libzip-dev
