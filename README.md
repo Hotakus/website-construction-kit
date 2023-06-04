@@ -10,7 +10,7 @@ This kit can automatically compile, deploy and configure wordpress with a nice m
 
 Install basic packages:
 
-```zsh
+```console
 sudo apt install bison re2c pkg-config libxml2-dev libssl-dev \ 
  libsqlite3-dev  libcurl4-openssl-dev libpng-dev libwebp-dev libjpeg-dev \
  libfreetype-dev libonig-dev libzip-dev
@@ -18,14 +18,14 @@ sudo apt install bison re2c pkg-config libxml2-dev libssl-dev \
 
 And pull this repo. Use SSH to pull repo is recommended.
 
-```bash
+```console
 git clone --recurse-submodules \
  ssh://git@ssh.github.com:443/Hotakus/wordpress-kit.git
 ```
 
 If the submodules folder is empty, you can run:
 
-```bash
+```console
 git submodule update --init --recursive --depth 1
 ```
 
@@ -39,20 +39,11 @@ Opening the file "config.json" in root folder,
 
 ## Compiling
 
-```bash
+```console
 sudo apt install build-essential cmake 
 ```
 
 ads
-
-
-
-```c
-#include <stdio.h>
-int main() {
-    return 0;
-}
-```
 
 
 
@@ -62,7 +53,7 @@ int main() {
 
 This project support localhost and docker(recommended).
 
-```bash
+```console
 sudo apt install python3 python3-pip
 ```
 
@@ -76,7 +67,7 @@ If your host is new and pure, directly deploying project to your localhost is mo
 
 If your localhost is mess, I recommend that you deploy project to docker, otherwise the project maybe don't work or mess up your environment of localhost. even if localhost is pure and new, I still recommend using this method to deploy.
 
-```bash
+```console
 sudo apt install docker.io
 ```
 
