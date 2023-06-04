@@ -2,6 +2,7 @@
 	// database, mariadb, if "use_database" is "yes", the project will install a mariadb in your server or docker.
 	// The "default" is invalid, you must change it to a valid value
 	"db_options" : {
+		"db_name" : "default",
 		"db_user" : "default",
 		"db_pwd" : "default",
 		"db_host" : "127.0.0.1",
@@ -13,14 +14,16 @@
 		"enable" : "yes",
 		"use_pseudo_static" : "yes",
 
+		"port" : "80",
+		"site_location" : "/",
+		
+		// If enable, the port will be overwritten by 443
 		"https" : {
 			"enable" : "no",
-			"" : ""
+			"certificate" : "",
+			"certificate_key" : ""
 		},
 
-		"port" : "80",
-		"site-location" : "/",
-		
 		"client_max_body_size" : "2048m",
 		
 		"fastcgi_connect_timeout" : "3000",
@@ -30,10 +33,14 @@
 
 	// PHP
 	"php_options" : {
+		// php.ini /usr/local/lib/php.ini
 		"memory_limit" : "128m",
 		"post_max_size" : "2048m",
 		"upload_max_filesize" : "2048m",
 		"max_file_uploads" : "20",
+
+		"expose_php" : "Off",
+		"display_errors" : "Off",
 
 		"compile_configs" : ["--with-freetype", "--with-jpeg", "--with-mysqli", "--with-mysql-sock",
 					 "--with-zlib", "--enable-fpm", "--with-zip","--with-webp", "--enable-ftp", 
@@ -43,7 +50,13 @@
 		
 		// extra extensions
 		"extra_extensions_dir" : "",
-		"extra_extensions" : ["imagick.so"]
+		"extra_extensions" : ["imagick.so"],
+		
+		// www.conf /usr/local/etc/php-fpm.d/www.conf
+		"php_fpm_options" : {
+			"user" : "www-data",
+			"group" : "www-data"
+		} 
 	},
 	
 	"deploy_method" : {
@@ -54,7 +67,10 @@
 		},
 		
 		"docker" : {
-			"docker_db_split" : "yes"
+			"db_ver" : "10.6.12",
+			"wp_db_split" : "yes"
 		}
-	}
+	},
+
+	"wp_plugins" : [""]
 }
