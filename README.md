@@ -43,7 +43,19 @@ ads
 
 ### Deploying
 
-aa
+This project support localhost and docker(recommended).
+
+#### 1. Deploying to localhost
+
+If your host is new and pure, derectly deploying project to your localhost is most easy and fast, otherwise not recommended, looking 2.
+
+
+
+#### 2. Deploying to docker
+
+If your localhost is mess, I recommend that you deploy project to docker, otherwise the project maybe don't work or mess up your env of localhost. even if localhost is pure and new, I still recommend using this method to deploy.
+
+
 
 ---
 
