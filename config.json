@@ -1,13 +1,57 @@
+
+// TODO:
+// 1. database and docker problems
+
 {
 	// database, mariadb, if "use_database" is "yes", the project will install a mariadb in your server or docker.
 	// The "default" is invalid, you must change it to a valid value
 	"db_options" : {
-		"db_name" : "default",
-		"db_user" : "default",
-		"db_pwd" : "default",
-		"db_host" : "127.0.0.1",
-		"debug" : "no"	
+
+		// If yes, the program will ignore below and use default setting to config database.
+		// If change and 'no', then program will automatically change db with below
+		"use_default" : "no", 
+		"db_name" : "wp_db",
+		"db_user" : "wp_admin",
+		"db_pwd" : "wp_pwd",
+
+		// If localhost, fill it with 127.0.0.1, dont use 'localhost'
+		// 1. If host is not localhost(127.0.0.1), and the deploy method is 'docker', 
+		// the docker container of database will not be create.
+		// 2. If host is localhost, and deploy method is 'localhost', 
+		// program will try to use and modify exist database.
+		// 3. If host is localhost, and deploy method is 'docker', 
+		// program will ignore this option and use database in docker
+		"db_host" : "127.0.0.1" 
 	},
+
+	"deploy_method" : {
+		"method" : "docker",
+		
+		"localhost" : {
+
+		},
+		
+		"docker" : {
+			// TODO: How to mount
+			"mount_db_to_localhost" : {
+				"enable" : "yes",
+				"path" : ""
+			},
+			"wp_db_split" : "yes"
+		}
+	},
+
+	"wp_options" : {
+		"debug" : "no",
+		"lang" : "zh_CN",  // default language, empty is en_US
+		
+		"wp_privilege" : "777",
+		"fs_method" : "direct",
+
+		"themes" : [""],
+		"basic_plugins" : [""]
+	},
+
 
 	// nginx
 	"nginx_options" : {
@@ -31,6 +75,7 @@
     	"fastcgi_read_timeout" : "3000"
 	},
 
+
 	// PHP
 	"php_options" : {
 		// php.ini /usr/local/lib/php.ini
@@ -42,6 +87,12 @@
 		"expose_php" : "Off",
 		"display_errors" : "Off",
 
+		// www.conf /usr/local/etc/php-fpm.d/www.conf
+		"php_fpm_options" : {
+			"user" : "www-data",
+			"group" : "www-data"
+		},
+
 		"compile_configs" : ["--with-freetype", "--with-jpeg", "--with-mysqli", "--with-mysql-sock",
 					 "--with-zlib", "--enable-fpm", "--with-zip","--with-webp", "--enable-ftp", 
 					 "--enable-libgcc", "--enable-mysqlnd", "--enable-sockets", "--enable-soap",
@@ -50,27 +101,9 @@
 		
 		// extra extensions
 		"extra_extensions_dir" : "",
-		"extra_extensions" : ["imagick.so"],
-		
-		// www.conf /usr/local/etc/php-fpm.d/www.conf
-		"php_fpm_options" : {
-			"user" : "www-data",
-			"group" : "www-data"
-		} 
+		"extra_extensions" : ["imagick.so"]
 	},
+
 	
-	"deploy_method" : {
-		"method" : "localhost",
-		
-		"localhost" : {
-
-		},
-		
-		"docker" : {
-			"db_ver" : "10.6.12",
-			"wp_db_split" : "yes"
-		}
-	},
-
-	"wp_plugins" : [""]
+	
 }
