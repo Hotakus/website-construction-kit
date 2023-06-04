@@ -1,25 +1,25 @@
 [submodule "submodules/pcre2"]
 	path = submodules/pcre2
-	url = https://github.com/PCRE2Project/pcre2.git
+	url = git@github.com:PCRE2Project/pcre2.git
 
 [submodule "submodules/PHP-8.2.6"]
 	path = submodules/PHP-8.2.6
-	url = https://github.com/php/php-src.git
+	url = git@github.com:php/php-src.git
 	branch = PHP-8.2.6
 
 [submodule "submodules/imagick-3.7.0"]
 	path = submodules/imagick-3.7.0
-	url = https://github.com/Imagick/imagick.git
+	url = git@github.com:Imagick/imagick.git
 	branch = 3.7.0
 [submodule "submodules/wordpress-6.2"]
 	path = submodules/wordpress-6.2
-	url = https://github.com/WordPress/WordPress.git
+	url = git@github.com:WordPress/WordPress.git
 	branch = 6.2-branch
 [submodule "submodules/ImageMagick"]
 	path = submodules/ImageMagick
-	url = https://github.com/ImageMagick/ImageMagick.git
+	url = git@github.com:ImageMagick/ImageMagick.git
 
 [submodule "submodules/nginx-1.24.0"]
 	path = submodules/nginx-1.24.0
-	url = https://github.com/Hotakus/nginx.git
+	url = git@github.com:Hotakus/nginx.git
 	branch = branches/stable-1.24
