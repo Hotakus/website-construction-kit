@@ -2,9 +2,13 @@
 
 A wordpress kit for quikly constructing a website on your server.
 
+This kit can automatically compile, deploy and configure wordpress with a nice method 
+
+
+
 ---
 
-### Pre-work
+## Pre-work
 
 Install basic packages:
 
@@ -29,29 +33,37 @@ git submodule update --init --recursive --depth 1
 
 ---
 
-### Configuring
+## Configuring
 
 Opening the file "config.json" in root folder, 
 
 ---
 
-### Compiling
+## Compiling
+
+```bash
+sudo apt install build-essential cmake 
+```
 
 ads
 
 ---
 
-### Deploying
+## Deploying
 
 This project support localhost and docker(recommended).
 
-#### 1. Deploying to localhost
+```bash
+sudo apt install python3 python3-pip
+```
+
+### 1. To localhost
 
 If your host is new and pure, derectly deploying project to your localhost is most easy and fast, otherwise not recommended, looking 2.
 
 
 
-#### 2. Deploying to docker
+### 2. To docker
 
 If your localhost is mess, I recommend that you deploy project to docker, otherwise the project maybe don't work or mess up your env of localhost. even if localhost is pure and new, I still recommend using this method to deploy.
 
@@ -59,6 +71,8 @@ If your localhost is mess, I recommend that you deploy project to docker, otherw
 
 ---
 
-### Try you website
+## Try your website
+
+kkk
 
 ---
