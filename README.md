@@ -1,8 +1,8 @@
-# wordpress-kit
+# wordpress-kit (WIP)
 
 A wordpress kit for quickly constructing a website on your server.
 
-This kit can automatically compile, deploy and configure wordpress with a nice method 
+This kit can automatically compile, deploy and configure wordpress with a nice method.
 
 ---
 
@@ -55,6 +55,8 @@ This project support localhost and docker(recommended).
 sudo apt install python3 python3-pip
 ```
 
+If you had already installed anaconda, you can ignore command above.
+
 ### 1. To localhost
 
 If your host is new and pure, directly deploying project to your localhost is most easy and fast, otherwise not recommended, looking 2.
@@ -62,6 +64,18 @@ If your host is new and pure, directly deploying project to your localhost is mo
 ### 2. To docker
 
 If your localhost is mess, I recommend that you deploy project to docker, otherwise the project maybe don't work or mess up your environment of localhost. even if localhost is pure and new, I still recommend using this method to deploy.
+
+```bash
+sudo apt install docker.io
+```
+
+
+
+---
+
+## Use directly
+
+download a release of the project, and use it.
 
 ---
 
