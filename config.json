@@ -3,13 +3,13 @@
 // 1. database and docker problems
 
 {
-	// database, mariadb, if "use_database" is "yes", the project will install a mariadb in your server or docker.
+	// database, mariadb, if "use_database" is true, the project will install a mariadb in your server or docker.
 	// The "default" is invalid, you must change it to a valid value
 	"db_options" : {
 
 		// If yes, the program will ignore below and use default setting to config database.
-		// If change and 'no', then program will automatically change db with below
-		"use_default" : "no", 
+		// If change and 'false', then program will automatically change db with below
+		"use_default" : false, 
 		"db_name" : "wp_db",
 		"db_user" : "wp_admin",
 		"db_pwd" : "wp_pwd",
@@ -34,15 +34,15 @@
 		"docker" : {
 			// TODO: How to mount
 			"mount_db_to_localhost" : {
-				"enable" : "yes",
+				"enable" : true,
 				"path" : ""
 			},
-			"wp_db_split" : "yes"
+			"wp_db_split" : true
 		}
 	},
 
 	"wp_options" : {
-		"debug" : "no",
+		"debug" : false,
 		"lang" : "zh_CN",  // default language, empty is en_US
 		
 		"wp_privilege" : "777",
@@ -55,15 +55,15 @@
 
 	// nginx
 	"nginx_options" : {
-		"enable" : "yes",
-		"use_pseudo_static" : "yes",
+		"enable" : true,
+		"use_pseudo_static" : true,
 
 		"port" : "80",
 		"site_location" : "/",
 		
 		// If enable, the port will be overwritten by 443
 		"https" : {
-			"enable" : "no",
+			"enable" : false,
 			"certificate" : "",
 			"certificate_key" : ""
 		},
