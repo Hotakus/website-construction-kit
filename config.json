@@ -1,109 +1,135 @@
-
 // TODO:
 // 1. database and docker problems
-
 {
-	// database, mariadb, if "use_database" is true, the project will install a mariadb in your server or docker.
-	// The "default" is invalid, you must change it to a valid value
-	"db_options" : {
+    // database, mariadb, if "use_database" is true, the project will install a mariadb in your server or docker.
+    // The "default" is invalid, you must change it to a valid value
+    "db_options": {
+        // If yes, the program will ignore below and use default setting to config database.
+        // If change and 'false', then program will automatically change db with below
+        "use_default": false,
+        "db_name": "wp_db",
+        "db_user": "wp_admin",
+        "db_pwd": "wp_pwd",
+        // If localhost, fill it with 127.0.0.1, dont use 'localhost'
+        // 1. If host is not localhost(127.0.0.1), and the deploy method is 'docker', 
+        // the docker container of database will not be create.
+        // 2. If host is localhost, and deploy method is 'localhost', 
+        // program will try to use and modify exist database.
+        // 3. If host is localhost, and deploy method is 'docker', 
+        // program will ignore this option and use database in docker
+        "db_host": "127.0.0.1"
+    },
 
-		// If yes, the program will ignore below and use default setting to config database.
-		// If change and 'false', then program will automatically change db with below
-		"use_default" : false, 
-		"db_name" : "wp_db",
-		"db_user" : "wp_admin",
-		"db_pwd" : "wp_pwd",
+    "deploy_method": {
+        "method": "docker",
+        "localhost": {},
+        "docker": {
+            // TODO: How to mount
+            "mount_db_to_localhost": {
+                "enable": true,
+                "path": ""
+            },
+            "wp_db_split": true
+        }
+    },
 
-		// If localhost, fill it with 127.0.0.1, dont use 'localhost'
-		// 1. If host is not localhost(127.0.0.1), and the deploy method is 'docker', 
-		// the docker container of database will not be create.
-		// 2. If host is localhost, and deploy method is 'localhost', 
-		// program will try to use and modify exist database.
-		// 3. If host is localhost, and deploy method is 'docker', 
-		// program will ignore this option and use database in docker
-		"db_host" : "127.0.0.1" 
-	},
+    "wp_options": {
+        "debug": false,
+        "lang": "zh_CN", // default language, empty is en_US
+        "wp_privilege": "777",
+        "fs_method": "direct",
+        "themes": [
+            ""
+        ],
+        "basic_plugins": [
+            ""
+        ]
+    },
 
-	"deploy_method" : {
-		"method" : "docker",
-		
-		"localhost" : {
+    // nginx
+    "nginx_options": {
+        "enable": true,
+        "use_pseudo_static": true,
+        "port": "80",
+        "site_location": "/",
+        // If enable, the port will be overwritten by 443
+        "https": {
+            "enable": false,
+            "certificate": "",
+            "certificate_key": ""
+        },
+        "client_max_body_size": "2048m",
+        "fastcgi_connect_timeout": "3000",
+        "fastcgi_send_timeout": "3000",
+        "fastcgi_read_timeout": "3000"
+    },
 
-		},
-		
-		"docker" : {
-			// TODO: How to mount
-			"mount_db_to_localhost" : {
-				"enable" : true,
-				"path" : ""
-			},
-			"wp_db_split" : true
-		}
-	},
+    // PHP
+    "php_options": {
+        // php.ini /usr/local/lib/php.ini
+        "memory_limit": "128m",
+        "post_max_size": "2048m",
+        "upload_max_filesize": "2048m",
+        "max_file_uploads": "20",
+        "expose_php": "Off",
+        "display_errors": "Off",
 
-	"wp_options" : {
-		"debug" : false,
-		"lang" : "zh_CN",  // default language, empty is en_US
-		
-		"wp_privilege" : "777",
-		"fs_method" : "direct",
+        // www.conf /usr/local/etc/php-fpm.d/www.conf
+        "php_fpm_options": {
+            "user": "www-data",
+            "group": "www-data"
+        },
 
-		"themes" : [""],
-		"basic_plugins" : [""]
-	},
+        "compile_configs": [
+            "--with-freetype",
+            "--with-jpeg",
+            "--with-mysqli",
+            "--with-mysql-sock",
+            "--with-zlib",
+            "--with-zip",
+            "--with-webp",
+            "--with-openssl",
+            "--with-curl",
+            "--enable-ftp",
+            "--enable-libgcc",
+            "--enable-mysqlnd",
+            "--enable-sockets",
+            "--enable-soap",
+            "--enable-gd",
+            "--enable-fpm",
+            "--enable-intl",
+            "--enable-mbstring",
+            "--enable-exif"
+        ],
 
+        // extra extensions
+        "extra_extensions_dir": "",
+        "extra_extensions": [
+            "imagick.so"
+        ]
+    },
 
-	// nginx
-	"nginx_options" : {
-		"enable" : true,
-		"use_pseudo_static" : true,
-
-		"port" : "80",
-		"site_location" : "/",
-		
-		// If enable, the port will be overwritten by 443
-		"https" : {
-			"enable" : false,
-			"certificate" : "",
-			"certificate_key" : ""
-		},
-
-		"client_max_body_size" : "2048m",
-		
-		"fastcgi_connect_timeout" : "3000",
-    	"fastcgi_send_timeout" : "3000",
-    	"fastcgi_read_timeout" : "3000"
-	},
-
-
-	// PHP
-	"php_options" : {
-		// php.ini /usr/local/lib/php.ini
-		"memory_limit" : "128m",
-		"post_max_size" : "2048m",
-		"upload_max_filesize" : "2048m",
-		"max_file_uploads" : "20",
-
-		"expose_php" : "Off",
-		"display_errors" : "Off",
-
-		// www.conf /usr/local/etc/php-fpm.d/www.conf
-		"php_fpm_options" : {
-			"user" : "www-data",
-			"group" : "www-data"
-		},
-
-		"compile_configs" : ["--with-freetype", "--with-jpeg", "--with-mysqli", "--with-mysql-sock",
-					 "--with-zlib", "--enable-fpm", "--with-zip","--with-webp", "--enable-ftp", 
-					 "--enable-libgcc", "--enable-mysqlnd", "--enable-sockets", "--enable-soap",
-					 "--with-openssl", "--with-curl", "--enable-gd", "--enable-intl",
-					 "--enable-mbstring", "--enable-exif"],
-		
-		// extra extensions
-		"extra_extensions_dir" : "",
-		"extra_extensions" : ["imagick.so"]
-	},
-
-	
-	
+    "check_packs": {
+        "builtin": [
+            "zlib",
+            "pcre",
+            "hotakus_test_built"
+        ],
+        "must": [
+            "hotakus-test",
+            "bison",
+            "re2c",
+            "pkg-config",
+            "libxml2-dev",
+            "libssl-dev",
+            "libsqlite3-dev",
+            "libcurl4-openssl-dev",
+            "libpng-dev",
+            "libwebp-dev",
+            "libjpeg-dev",
+            "libfreetype-dev",
+            "libonig-dev",
+            "libzip-dev"
+        ]
+    }
 }
