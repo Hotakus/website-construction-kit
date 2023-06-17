@@ -91,7 +91,9 @@ def main():
     check_packs(what_system)
 
     for i in config['php_options']['compile_configs']:
-        print("%s" % i, sep=' ')
+        print("%s" % i, end=' ')
+
+    print()
 
 
 if __name__ == "__main__":
