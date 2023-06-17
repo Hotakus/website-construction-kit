@@ -110,12 +110,14 @@
     },
 
     "check_packs": {
-        "builtin": [
-            "zlib",
-            "pcre",
-            "re2c",
-            "hotakus_test_built"
-        ],
+        "builtin": {
+            "general" : [
+                "zlib",
+                "pcre",
+                "re2c",
+                "hotakus_test_built"
+            ]
+        },
         "must": {
             "general" : [
                 "hotakus-test(ignore)",

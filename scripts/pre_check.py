@@ -16,7 +16,7 @@ info_prompt = '[I]'
 
 must_packs = []
 def _base_grep(cmd=[]):
-    builtin_packs = config['check_packs']['builtin']
+    builtin_packs = config['check_packs']['builtin']['general']
     general_packs = config['check_packs']['must']['general']
     total_packs = general_packs + builtin_packs + must_packs
 
