@@ -64,7 +64,7 @@ def main():
     config = json5.loads(config)
     check_packs(what_system)
 
-    for i in config['compile_configs']:
+    for i in config['php_options']['compile_configs']:
         print("%s" % i, sep=' ')
 
 
