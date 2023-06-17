@@ -63,13 +63,13 @@ def check_os(sign_file=""):
 
 
 def check_packs(sys=""):
-    global must_packs
+    global must_packs, config
     match sys:
         case 'Debian':
-            must_packs = ['check_packs']['must']['debians']
+            must_packs = config['check_packs']['must']['debians']
             do_as_debian()
         case 'RedHat':
-            must_packs = ['check_packs']['must']['redhats']
+            must_packs = config['check_packs']['must']['redhats']
             do_as_redhat()
 
 
