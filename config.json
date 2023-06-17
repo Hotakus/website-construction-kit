@@ -142,15 +142,16 @@
                 "libzip-dev"
             ],
             "redhats" : [
+                "libcurl-devel",
                 "openssl",
-                "libxml2",
-                "libsqlite3",
-                "libpng",
-                "libwebp",
-                "libjpeg",
-                "libfreetype",
+                "libxml2-devel",
+                "sqlite-devel",
+                "freetype-devel",
                 "oniguruma",
-                "libzip"
+                "zip",
+                "libpng-devel",
+                "libwebp-devel",
+                "libjpeg-turbo-devel"
             ]
         }
     }
