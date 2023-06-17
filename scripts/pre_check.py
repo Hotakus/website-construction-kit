@@ -9,9 +9,9 @@ already_packs = []
 
 check_path = ["/etc/redhat-release"]
 
-warning_prompt = '[W]'
-error_prompt = '[E]'
-info_prompt = '[I]'
+warning_prompt = Fore.YELLOW + '[W]'
+error_prompt = Fore.RED + '[E]'
+info_prompt = Fore.CYAN + '[I]'
 
 
 must_packs = []
@@ -35,12 +35,12 @@ def _base_grep(cmd=[]):
             ex_prompt = "" if not pib else builtin_prompt
             already_packs.append(pack) if pib else missing_packs.append(pack)
             print(
-                ((Fore.YELLOW + warning_prompt) if pib else (Fore.RED + error_prompt)) +
+                (warning_prompt if pib else error_prompt) +
                 (" '%s' is missing" % pack) +
                 ex_prompt
             )
         else:
-            print(Fore.CYAN + info_prompt + " '%s' is " % pack + Fore.GREEN + "OK")
+            print(info_prompt + " '%s' is " % pack + Fore.GREEN + "OK")
 
 
 def do_as_debian():
