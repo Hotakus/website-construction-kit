@@ -1,6 +1,6 @@
 import os
 import subprocess as sp
-from colorama import Fore
+from colorama import Fore, Style
 import json5
 
 config: dict = {}
@@ -41,7 +41,7 @@ def _base_grep(cmd=[]):
             )
         else:
             print(info_prompt + " '%s' is " % pack + Fore.GREEN + "OK")
-
+    print(Style.RESET_ALL)
 
 def do_as_debian():
     cmd = ['dpkg', '--list']
