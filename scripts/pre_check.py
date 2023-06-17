@@ -7,6 +7,12 @@ config: dict = {}
 missing_packs = []
 already_packs = []
 
+check_path = ["/etc/redhat-release"]
+
+warning_prompt = '[I]'
+error_prompt = '[W]'
+info_prompt = '[E]'
+
 
 def _base_grep(cmd=[]):
     builtin_packs = config['check_packs']['builtin']
@@ -28,34 +34,54 @@ def _base_grep(cmd=[]):
             ex_prompt = "" if not pib else builtin_prompt
             already_packs.append(pack) if pib else missing_packs.append(pack)
             print(
-                ((Fore.YELLOW + "[W]") if pib else (Fore.RED + "[E]")) +
+                ((Fore.YELLOW + warning_prompt) if pib else (Fore.RED + error_prompt)) +
                 (" '%s' is missing" % pack) +
                 ex_prompt
             )
         else:
-            print(Fore.CYAN + "[I] '%s' is " % pack + Fore.GREEN + "OK")
+            print(Fore.CYAN + info_prompt + " '%s' is " % pack + Fore.GREEN + "OK")
 
 
-def do_as_ubuntu():
+def do_as_debian():
     cmd = ['dpkg', '--list']
-    res = _base_grep(cmd)
+    _base_grep(cmd)
+
+
+def do_as_redhat():
+    cmd = ['yum', 'list']
+    _base_grep(cmd)
+
+
+def check_os(sign_file=""):
+    global check_path
+    if check_path[0] == sign_file:
+        return "RedHat"
+    elif check_path[1] == sign_file:
+        return "Debian"
+    return None
 
 
 def check_packs(sys=""):
     match sys:
-        case 'ubuntu':
-            do_as_ubuntu()
+        case 'Debian':
+            do_as_debian()
+        case 'RedHat':
+            do_as_redhat()
 
 
 def main():
-    check_path = "/proc/version_signature"
-    ve_res = os.path.exists(check_path)
-    if not ve_res:
-        check_path = '/proc/version'
+    global check_path
+    what_system = ""
+    for p in check_path:
+        ve_res = os.path.exists(p)
+        if ve_res is True:
+            what_system = check_os(p)
+            print(info_prompt + " Current os is series of " + what_system)
+            break
 
-    sys_type = sp.Popen(['cat', check_path], stdout=sp.PIPE)
-    stdout, stderr = sys_type.communicate()
-    what_system = stdout.decode('utf-8').split(' ')[0].lower()
+    # sys_type = sp.Popen(['cat', check_path], stdout=sp.PIPE)
+    # stdout, stderr = sys_type.communicate()
+    # what_system = stdout.decode('utf-8').split(' ')[0].lower()
 
     # check packs
     global config
