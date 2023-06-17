@@ -61,7 +61,12 @@
         "client_max_body_size": "2048m",
         "fastcgi_connect_timeout": "3000",
         "fastcgi_send_timeout": "3000",
-        "fastcgi_read_timeout": "3000"
+        "fastcgi_read_timeout": "3000",
+
+        "compile_configs" :[
+            "--with-http_ssl_module",
+            "--with-http_v2_module"
+        ]
     },
 
     // PHP
