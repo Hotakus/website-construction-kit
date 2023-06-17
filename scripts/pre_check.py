@@ -48,7 +48,7 @@ def do_as_debian():
 
 
 def do_as_redhat():
-    cmd = ['yum', 'list']
+    cmd = ['rpm', '-qa']
     _base_grep(cmd)
 
 
