@@ -50,6 +50,9 @@ def check_packs(sys=""):
 def main():
     check_path = "/proc/version_signature"
     ve_res = os.path.exists(check_path)
+    if not ve_res:
+        check_path = '/proc/version'
+
     sys_type = sp.Popen(['cat', check_path], stdout=sp.PIPE)
     stdout, stderr = sys_type.communicate()
     what_system = stdout.decode('utf-8').split(' ')[0].lower()
@@ -60,6 +63,9 @@ def main():
         config = f.read()
     config = json5.loads(config)
     check_packs(what_system)
+
+    for i in config['compile_configs']:
+        print("%s" % i, sep=' ')
 
 
 if __name__ == "__main__":
