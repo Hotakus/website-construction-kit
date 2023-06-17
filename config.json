@@ -143,15 +143,16 @@
             ],
             "redhats" : [
                 "libcurl-devel",
-                "openssl",
+                "libicu-devel",
                 "libxml2-devel",
-                "sqlite-devel",
-                "freetype-devel",
-                "oniguruma",
-                "zip",
                 "libpng-devel",
                 "libwebp-devel",
-                "libjpeg-turbo-devel"
+                "libjpeg-turbo-devel",
+                "sqlite-devel",
+                "freetype-devel",
+                "openssl",
+                "oniguruma",
+                "zip"
             ]
         }
     }
