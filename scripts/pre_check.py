@@ -14,10 +14,11 @@ error_prompt = '[E]'
 info_prompt = '[I]'
 
 
+must_packs = []
 def _base_grep(cmd=[]):
     builtin_packs = config['check_packs']['builtin']
-    must_packs = config['check_packs']['must']
-    total_packs = builtin_packs + must_packs
+    general_packs = config['check_packs']['must']['general']
+    total_packs = general_packs + builtin_packs + must_packs
 
     builtin_prompt = " (Program will automatically install it by builtin packs. Don't mind it.)"
 
@@ -62,10 +63,13 @@ def check_os(sign_file=""):
 
 
 def check_packs(sys=""):
+    global must_packs
     match sys:
         case 'Debian':
+            must_packs = ['check_packs']['must']['debians']
             do_as_debian()
         case 'RedHat':
+            must_packs = ['check_packs']['must']['redhats']
             do_as_redhat()
 
 

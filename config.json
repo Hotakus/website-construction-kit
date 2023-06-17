@@ -113,23 +113,38 @@
         "builtin": [
             "zlib",
             "pcre",
+            "re2c",
             "hotakus_test_built"
         ],
-        "must": [
-            "hotakus-test",
-            "bison",
-            "re2c",
-            "pkg-config",
-            "openssl",
-            "libxml2",
-            "libssl",
-            "libsqlite3",
-            "libpng",
-            "libwebp",
-            "libjpeg",
-            "libfreetype",
-            "libonig",
-            "libzip"
-        ]
+        "must": {
+            "general" : [
+                "hotakus-test(ignore)",
+                "bison",
+                "pkg-config"
+            ],
+            "debians" : [
+                "libxml2-dev",
+                "libssl-dev",
+                "libsqlite3-dev",
+                "libcurl4-openssl-dev",
+                "libpng-dev",
+                "libwebp-dev",
+                "libjpeg-dev",
+                "libfreetype-dev",
+                "libonig-dev",
+                "libzip-dev"
+            ],
+            "redhats" : [
+                "openssl",
+                "libxml2",
+                "libsqlite3",
+                "libpng",
+                "libwebp",
+                "libjpeg",
+                "libfreetype",
+                "oniguruma",
+                "libzip"
+            ]
+        }
     }
 }
