@@ -9,9 +9,9 @@ already_packs = []
 
 check_path = ["/etc/redhat-release"]
 
-warning_prompt = '[I]'
-error_prompt = '[W]'
-info_prompt = '[E]'
+warning_prompt = '[W]'
+error_prompt = '[E]'
+info_prompt = '[I]'
 
 
 def _base_grep(cmd=[]):
