@@ -120,16 +120,16 @@
             "bison",
             "re2c",
             "pkg-config",
-            "libxml2-dev",
-            "libssl-dev",
-            "libsqlite3-dev",
-            "libcurl4-openssl-dev",
-            "libpng-dev",
-            "libwebp-dev",
-            "libjpeg-dev",
-            "libfreetype-dev",
-            "libonig-dev",
-            "libzip-dev"
+            "openssl",
+            "libxml2",
+            "libssl",
+            "libsqlite3",
+            "libpng",
+            "libwebp",
+            "libjpeg",
+            "libfreetype",
+            "libonig",
+            "libzip"
         ]
     }
 }
