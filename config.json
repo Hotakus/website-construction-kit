@@ -152,7 +152,7 @@
                 "freetype-devel",
                 "openssl",
                 "oniguruma-devel",
-                "zip"
+                "libzip-devel"
             ]
         }
     }
