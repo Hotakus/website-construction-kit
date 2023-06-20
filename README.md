@@ -1,8 +1,20 @@
 # wordpress-kit (WIP)
 
-A wordpress kit for quickly constructing a website on your server.
+A WordPress kit for quickly constructing a website on your server.
 
-This kit can automatically compile, deploy and configure wordpress with a nice method.
+This kit can automatically compile, deploy and configure WordPress with a nice method.
+
+---
+
+- [wordpress-kit (WIP)](#wordpress-kit-wip)
+  - [Pre-work](#pre-work)
+  - [Configuring](#configuring)
+  - [Compiling](#compiling)
+  - [Deploying](#deploying)
+    - [1. To localhost](#1-to-localhost)
+    - [2. To docker](#2-to-docker)
+  - [Use directly](#use-directly)
+  - [Try your website](#try-your-website)
 
 ---
 
@@ -23,7 +35,7 @@ git clone --recurse-submodules \
  ssh://git@ssh.github.com:443/Hotakus/wordpress-kit.git
 ```
 
-If the submodules folder is empty, you can run:
+If the submodules' folder is empty, you can run:
 
 ```console
 git submodule update --init --recursive --depth 1
@@ -33,7 +45,7 @@ git submodule update --init --recursive --depth 1
 
 ## Configuring
 
-Opening the file "config.json" in root folder, 
+Opening the file "config.json" in root folder,
 
 ---
 
@@ -44,8 +56,6 @@ sudo apt install build-essential cmake
 ```
 
 ads
-
-
 
 ---
 
@@ -70,8 +80,6 @@ If your localhost is mess, I recommend that you deploy project to docker, otherw
 ```console
 sudo apt install docker.io
 ```
-
-
 
 ---
 
