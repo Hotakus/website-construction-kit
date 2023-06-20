@@ -1,12 +1,6 @@
 [submodule "submodules/pcre2"]
 	path = submodules/pcre2
 	url = ssh://git@ssh.github.com:443/PCRE2Project/pcre2.git
-
-[submodule "submodules/PHP-8.2.6"]
-	path = submodules/PHP-8.2.6
-	url = ssh://git@ssh.github.com:443/php/php-src.git
-	branch = PHP-8.2.6
-
 [submodule "submodules/imagick-3.7.0"]
 	path = submodules/imagick-3.7.0
 	url = ssh://git@ssh.github.com:443/Imagick/imagick.git
@@ -18,12 +12,15 @@
 [submodule "submodules/ImageMagick"]
 	path = submodules/ImageMagick
 	url = ssh://git@ssh.github.com:443/ImageMagick/ImageMagick.git
-
 [submodule "submodules/nginx-1.24.0"]
 	path = submodules/nginx-1.24.0
 	url = ssh://git@ssh.github.com:443/Hotakus/nginx.git
 	branch = branches/stable-1.24
-
 [submodule "submodules/zlib"]
 	path = submodules/zlib
 	url = ssh://git@ssh.github.com:443/madler/zlib.git
+
+[submodule "submodules/php-src"]
+	path = submodules/php-src
+	url = ssh://git@ssh.github.com:443/php/php-src.git
+	branch = PHP-7.4.33
