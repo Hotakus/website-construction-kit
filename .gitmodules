@@ -19,8 +19,7 @@
 [submodule "submodules/zlib"]
 	path = submodules/zlib
 	url = ssh://git@ssh.github.com:443/madler/zlib.git
-
 [submodule "submodules/php-src"]
 	path = submodules/php-src
 	url = ssh://git@ssh.github.com:443/php/php-src.git
-	branch = PHP-7.4.33
+	branch = PHP-8.0.29
