@@ -1,0 +1,1 @@
+./configure --with-freetype --with-jpeg --with-mysqli --with-mysql-sock --with-zlib --with-zip --with-webp --with-openssl --with-curl --enable-ftp --enable-libgcc --enable-mysqlnd --enable-sockets --enable-soap --enable-gd --enable-fpm --enable-intl --enable-mbstring --enable-exif --with-pdo-mysql --enable-bcmath
